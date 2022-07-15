@@ -168,3 +168,6 @@ while(resetPressed.length > 0 ){
     resetPressed[0].classList.remove('press');
 }
 }
+
+
+

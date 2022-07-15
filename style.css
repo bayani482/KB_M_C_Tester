@@ -349,4 +349,45 @@ a.title {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
-/*Nav BAR CSS*/
+
+/*controller interface css*/
+.css-2pzulp {
+    display: inline-flex;
+    margin: 0px 15px 5px 0px;
+    line-height: 1;
+}
+.css-1hlflqv {
+    display: flex;
+    margin-bottom: 20px;
+  }
+.css-cvu7os {
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    flex: 1 1 0%;
+    padding: 30px;
+    border-radius: 5px;
+}
+.css-1tx38fa {
+    margin: 10px 0px;
+}
+.css-1rjhz78 {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+.css-jqvulc {
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+}
+.css-1hpb57s {
+    max-width: 1000px;
+    margin: 0px auto;
+    padding: 20px 0px 0px;
+    min-height: 700px;
+}
+.css-1jxoetp {
+    position: relative;
+    height: 157px;
+    width: 157px;
+    display: inline-block;
+    border: 10px solid rgba(0, 0, 0, 0);
+  }
