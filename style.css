@@ -351,43 +351,53 @@ a.title {
 }
 
 /*controller interface css*/
-.css-2pzulp {
-    display: inline-flex;
-    margin: 0px 15px 5px 0px;
-    line-height: 1;
-}
-.css-1hlflqv {
-    display: flex;
-    margin-bottom: 20px;
-  }
-.css-cvu7os {
+.css-cvu7os {/*the two sections of the controller interface*/
     background: rgb(255, 255, 255) none repeat scroll 0% 0%;
     flex: 1 1 0%;
     padding: 30px;
     border-radius: 5px;
 }
-.css-1tx38fa {
+.css-2pzulp {/*All the Controller input data/title"*/
+    display: inline-flex;
+    margin: 0px 15px 5px 0px;
+    line-height: 1;
+}
+.css-1hlflqv {/*everything under "Controller Tester"*/
+    display: flex;
+    margin-bottom: 20px;
+  }
+.css-1tx38fa {/*second row of controller data*/
     margin: 10px 0px;
 }
-.css-1rjhz78 {
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-}
-.css-jqvulc {
+.css-jqvulc {/*controller SVG div*/
     display: flex;
     -moz-box-align: center;
     align-items: center;
 }
-.css-1hpb57s {
-    max-width: 1000px;
-    margin: 0px auto;
-    padding: 20px 0px 0px;
-    min-height: 700px;
-}
-.css-1jxoetp {
+.css-1jxoetp {/*joystick graph*/
     position: relative;
     height: 157px;
     width: 157px;
     display: inline-block;
     border: 10px solid rgba(0, 0, 0, 0);
+  }
+  .css-16pr7pg {/*controller information data title*/
+    font-size: 75%;
+    opacity: 0.6;
+  }
+  .css-3xd74t {/*controller information data*/
+    display: block;
+    margin-top: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .grid {
+    display: flex; 
+    flex-direction: row;
+    width: 50%;
+  }
+  .grid {
+    display: flex; 
+    flex-direction: row;
+    width: 50%;
   }
