@@ -195,16 +195,20 @@ function addgamepad(gamepad) {
     b.appendChild(e);
   }
   d.appendChild(b);
+
   var a = document.createElement("div");
   a.className = "axes";
   for (i=0; i<gamepad.axes.length; i++) {
+    l = document.createElement("p");
     e = document.createElement("meter");
-    e.id = "a" + i;
-    e.title = 'Axis'+ i;
+    e.id = "Axis" + i;
+    l.innerHTML = "Axis " + i
+    e.title = 'Axis '+ i;
     e.className = "axis";
     e.setAttribute("min", "-1");
     e.setAttribute("max", "1");
     e.setAttribute("value", "0");
+    a.appendChild(l);
     a.appendChild(e);
   }
   d.appendChild(a);

@@ -403,7 +403,9 @@ a.title {
 }
 /*/////////////////// controller 1.0/////////////////*/
 .axes {
+    display:flex;
     padding: 1em;
+    flex-basis: auto
 }
 
 .buttons {
