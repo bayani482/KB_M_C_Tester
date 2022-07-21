@@ -156,6 +156,60 @@ if (OSName==="Windows") backkey="backspace"
 if (OSName==="MacOS") backkey="delete";
 if (OSName==="UNIX") backkey="delete";
 //Mouse
+document.addEventListener('mousedown', function (e) {
+var buttons = e.buttons;
+if ((buttons & 1) === 1) {
+    document.getElementById('mouse-1').classList.add('press');
+    document.getElementById('mouse-1').classList.add('active');
+}
+if ((buttons & 2) === 2) {
+    document.getElementById('mouse-2').classList.add('press');
+    document.getElementById('mouse-2').classList.add('active');
+}
+if ((buttons & 4) === 4) {
+    document.getElementById('mouse-3').classList.add('press');
+    document.getElementById('mouse-3').classList.add('active');
+}
+if ((buttons & 8) === 8) {
+    document.getElementById('mouse-4').classList.add('press');
+    document.getElementById('mouse-4').classList.add('active');
+}
+if ((buttons & 16) === 16) {
+    document.getElementById('mouse-5').classList.add('press');
+    document.getElementById('mouse-5').classList.add('active');
+}
+}); 
+
+document.addEventListener('mouseup', function () {
+  [1, 2, 3, 4, 5].map(function (i) { return 'mouse-' + i; }).forEach(function (id) {
+      document.getElementById(id).classList.remove('active');
+  });
+});
+
+  var mouseSection = document.querySelector('.mouse-Section');
+  mouseSection.addEventListener('contextmenu', function (e) { e.preventDefault() });
+  mouseSection.addEventListener('mousedown', function (e) { e.preventDefault() });
+  mouseSection.addEventListener('mouseup', function (e) { e.preventDefault() });
+  var upId, downId;
+  mouseSection.addEventListener('wheel', function (e) {
+      if (e.deltaY < 0) {
+          document.getElementById('wheel-down').classList.add('press');
+          document.getElementById('wheel-down').classList.add('active');
+          window.clearTimeout(downId);
+          downId = window.setTimeout(function () {
+              document.getElementById('wheel-down').classList.remove('active')
+          }, 250);
+      } else if (e.deltaY > 0) {
+          document.getElementById('wheel-up').classList.add('press');
+          document.getElementById('wheel-up').classList.add('active');
+          window.clearTimeout(upId);
+          upId = window.setTimeout(function () {
+              document.getElementById('wheel-up').classList.remove('active')
+          }, 250);
+      }
+  });
+
+
 var resetActive = document.getElementsByClassName('active');
 var resetPressed = document.getElementsByClassName('press');
 
@@ -175,7 +229,6 @@ var controllers = {};
 var rAF = window.mozRequestAnimationFrame ||
   window.webkitRequestAnimationFrame ||
   window.requestAnimationFrame;
-
 function connecthandler(e) {
   addgamepad(e.gamepad);
 }
@@ -195,7 +248,6 @@ function addgamepad(gamepad) {
     b.appendChild(e);
   }
   d.appendChild(b);
-
   var a = document.createElement("div");
   a.className = "axes";
   for (i=0; i<gamepad.axes.length; i++) {
@@ -216,17 +268,14 @@ function addgamepad(gamepad) {
   document.body.appendChild(d);
   rAF(updateStatus);
 }
-
 function disconnecthandler(e) {
   removegamepad(e.gamepad);
 }
-
 function removegamepad(gamepad) {
   var d = document.getElementById("controller" + gamepad.index);
   document.body.removeChild(d);
   delete controllers[gamepad.index];
 }
-
 function updateStatus() {
   scangamepads();
   for (j in controllers) {
@@ -255,7 +304,6 @@ function updateStatus() {
         b.className += " touched";
       }
     }
-
     var axes = d.getElementsByClassName("axis");
     for (var i=0; i<controller.axes.length; i++) {
       var a = axes[i];
@@ -265,7 +313,6 @@ function updateStatus() {
   }
   rAF(updateStatus);
 }
-
 function scangamepads() {
   var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads() : []);
   for (var i = 0; i < gamepads.length; i++) {
@@ -274,7 +321,6 @@ function scangamepads() {
     }
   }
 }
-
 if (haveEvents) {
   window.addEventListener("gamepadconnected", connecthandler);
   window.addEventListener("gamepaddisconnected", disconnecthandler);
